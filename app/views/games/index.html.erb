@@ -20,18 +20,14 @@ Current Standings
       Player <%= player.id %>'s hand:
       <br>
 
-    <% 2.times do |counter| %>
+    <% 2.times do |y| %>
 <table>
       <tr>
+        <% 3.times do |x| %>
         <td>
-          <%= player.hand[0][counter] %>
+          <%= image_tag "/assets/images/#{player.hand[x][y]}.png" %>
         </td>
-        <td>
-          <%= player.hand[1][counter] %>
-        </td>
-        <td>
-          <%= player.hand[2][counter] %>
-        </td>
+        <% end %>
       </tr>
 </table>
     <% end %>
