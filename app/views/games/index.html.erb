@@ -1,0 +1,38 @@
+<h1>Golf</h1>
+
+<h3>This is round <%= @game.round %> of 18</h3>
+
+<h4>Current Player is Player <%= @game.current_player %> <h4>
+  <br>
+Current Standings
+
+<ul>
+  <% @game.players.each do |player| %>
+    <li>
+      Player <%= player.id %>'s score is <%= player.total_score %>
+    </li>
+  <% end %>
+</ul>
+
+  <% @game.players.each do |player| %>
+
+
+      Player <%= player.id %>'s hand:
+      <br>
+
+    <% 2.times do |counter| %>
+<table>
+      <tr>
+        <td>
+          <%= player.hand[0][counter] %>
+        </td>
+        <td>
+          <%= player.hand[1][counter] %>
+        </td>
+        <td>
+          <%= player.hand[2][counter] %>
+        </td>
+      </tr>
+</table>
+    <% end %>
+  <% end %>
