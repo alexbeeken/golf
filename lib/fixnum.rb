@@ -1,5 +1,3 @@
-require 'pry'
-
 class Fixnum
 
   def card_number
@@ -12,5 +10,15 @@ class Fixnum
     return 10 if ((self.card_number >= 9) && (self.card_number<= 11))
     return 0 if self.card_number == 12
     return (self.card_number + 1)
+  end
+
+  def score_with(card)
+    if self.score == card.score
+      return -4 if self.score < 0
+      return 0
+    else
+      puts("RETURNING #{self.score + card.score} for #{self.score} and #{card.score}")
+      return self.score + card.score
+    end
   end
 end
