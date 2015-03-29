@@ -3,7 +3,7 @@ class Player
 
   def initialize(params = {})
     @id = params.fetch(:id, 0)
-    @hand = params.fetch(:hand, [[],[],[]])
+    @hand = params.fetch(:hand, [[nil, nil],[nil, nil],[nil, nil]])
     @total_score = 0
   end
 
@@ -11,8 +11,24 @@ class Player
     total = 0
     @hand.each do |couple|
       total += couple[0].score_with(couple[1])
-      puts("SCORED #{couple[0]}.score_with(#{couple[1]}) = #{couple[0].score_with(couple[1])}, total is now #{total}}")
     end
     return total
   end
+
+  def first_two_chosen?
+    number_of_cards = 0
+    @hand.each do |couple|
+
+      if couple[0] != nil
+        number_of_cards += 1
+      end
+
+      if couple[1] != nil
+        number_of_cards += 1
+      end
+
+    end
+    return number_of_cards > 1
+  end
+
 end
